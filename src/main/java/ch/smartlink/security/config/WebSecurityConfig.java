@@ -67,19 +67,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+        http
+                .csrf().disable()
+                .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/actuator/**", "api-docs/**")
-                .permitAll()
-                .antMatchers("/resources/**")
-                .authenticated()
-                .and()
-                .httpBasic()
-                .realmName(securityRealm)
-                .and()
-                .csrf()
-                .disable();
+                .antMatchers("/oauth/token").permitAll();
         http.headers().frameOptions().disable();
     }
 

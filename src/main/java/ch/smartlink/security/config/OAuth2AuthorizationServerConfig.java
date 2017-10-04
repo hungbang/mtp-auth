@@ -45,14 +45,16 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//        clients.jdbc(dataSource);
+        clients.jdbc(dataSource);
 
-        clients.inMemory()
-                .withClient(clientId)
-                .secret(signingKey)
-                .authorizedGrantTypes(grantType)
-                .scopes(scopeRead, scopeWrite)
-                .resourceIds(resourcesIds);
+//        clients.inMemory()
+//                .withClient(clientId)
+//                .secret(signingKey)
+//                .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
+//                .scopes(scopeRead, scopeWrite)
+//                .resourceIds(resourcesIds)
+//        .accessTokenValiditySeconds(120)
+//        .refreshTokenValiditySeconds(600);
     }
 
     @Bean
@@ -62,6 +64,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         return converter;
     }
 
+    @Bean
     public TokenStore tokenStore(){
         return new JwtTokenStore(accessTokenConverter());
     }

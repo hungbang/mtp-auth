@@ -23,7 +23,7 @@ public class OAuthClientDetails implements Serializable{
 
     @Id
     @Column(name = "client_id", length = 256)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     public String getClientId() {
         return clientId;
     }

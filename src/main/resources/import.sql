@@ -39,3 +39,9 @@ INSERT INTO user_role(user_id, role_id) VALUES(2,2);
 -- INSERT INTO random_city(id, name) VALUES (6, 'Mopti');
 -- INSERT INTO random_city(id, name) VALUES (7, 'Koulikoro');
 -- INSERT INTO random_city(id, name) VALUES (8, 'Moscow');
+-- INSERT INTO oauth_client_details(client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove)
+-- VALUES('testjwtclientid','testjwtresourceid','MaYzkSjmkzPC57L','read, write','password,authorization_code,' ||
+--  'refresh_token,implicit','','',120,600,'how to generate token','');
+
+
+INSERT INTO oauth_client_details(client_id, client_secret, scope, authorized_grant_types,web_server_redirect_uri, authorities, access_token_validity,refresh_token_validity, additional_information, autoapprove, resource_ids) VALUES('testjwtclientid', 'MaYzkSjmkzPC57L', 'read, write','password,authorization_code,refresh_token', null, null, 36000, 36000, null, true,'testjwtresourceid');
